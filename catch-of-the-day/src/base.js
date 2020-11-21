@@ -1,5 +1,13 @@
 import Rebase from 're-base';
 import firebase from "firebase";
-import creds from './env'
+import credentials from './env'
 
-const firebaseApp = firebase.initializeApp(creds);
+const firebaseApp = firebase.initializeApp(credentials);
+
+const base = Rebase.createClass(firebaseApp.database());
+
+// This is a named export
+export { firebaseApp }
+
+// This is a default export
+export default base
