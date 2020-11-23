@@ -23,6 +23,28 @@
           transform: translateX(120%);
   padding: 0;
 }
+.count-enter {
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+  -webkit-transition: 250ms;
+  transition: 250ms;
+}
+.count-enter.count-enter-active {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+.count-exit {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition: 250ms;
+  transition: 250ms;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.count-exit.count-exit-active {
+  transfort: translateY(-100%);
+}
 @font-face {
   font-family: "haymakerregular";
   src: url("./fonts/haymaker-webfont.eot");

@@ -15,12 +15,20 @@ class Order extends React.Component {
 
 		if (isAvailable) {
 			return (
-				<CSSTransition classNames="order" key={key} timeout={{ enter: 250, exit: 250}}>
+				<CSSTransition classNames="order" key={key} timeout={{enter: 250, exit: 250}}>
 					<li key={key}>
-						{amount} lbs {fish.name}
+						<span>
+							<TransitionGroup component="span" className="count">
+								<CSSTransition classNames="count" key={amount} timeout={{enter: 250, exit: 250}}>
+									<span>{amount}</span>
+								</CSSTransition>
+							</TransitionGroup>
+							lbs
+							{fish.name}
 
-						{formatPrice(amount * fish.price)}
-						<button onClick={() => this.props.removeFromOrder(key)}>&times;</button>
+							{formatPrice(amount * fish.price)}
+							<button onClick={() => this.props.removeFromOrder(key)}>&times;</button>
+						</span>
 					</li>
 				</CSSTransition>
 			)
